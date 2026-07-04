@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="seleniumFW" parallel="classes" thread-count="2">
+	<listeners>
+		<listener class-name="com.seleniumFW.listeners.TestListener"></listener>
+	</listeners>
+	<test name="seleniumTest">
+		<classes>
+			<class name="com.seleniumFW.test.DummyTest"></class>
+			<class name="com.seleniumFW.test.LoginPageTest"></class>
+			<class name="com.seleniumFW.test.HomePageTest"></class>
+		</classes>
+	</test>
+</suite>	
