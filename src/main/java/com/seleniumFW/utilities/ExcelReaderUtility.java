@@ -19,7 +19,7 @@ public class ExcelReaderUtility {
 		List<String[]> data=new ArrayList<>();
 		
 		try(FileInputStream fis=new FileInputStream(filePath); Workbook workbook=
-				new XSSFWorkbook()){
+				new XSSFWorkbook(fis)){
 			Sheet sheet=workbook.getSheet(sheetName);
 			if(sheet==null)
 			{

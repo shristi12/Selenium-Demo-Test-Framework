@@ -22,12 +22,28 @@ public class TestListener implements ITestListener {
 		ExtentManager.logStepWithScreenShot(BaseClass.getDriver(), "Test Passed Successfully", testName);
 	}
 
-	@Override
+	/*@Override
 	public void onTestFailure(ITestResult result) {
 		String testName=result.getMethod().getMethodName();
 		String failureMessage=result.getThrowable().getMessage();
 		ExtentManager.logStep(failureMessage);
 		ExtentManager.logFailure(BaseClass.getDriver(), "Test Failed", testName);
+	}*/
+	
+	@Override
+	public void onTestFailure(ITestResult result) {
+
+	    String testName = result.getMethod().getMethodName();
+
+	    Throwable t = result.getThrowable();
+
+	    if (t != null) {
+	        ExtentManager.logStep(t.getMessage());
+	    }
+
+	    if (BaseClass.getDriver() != null) {
+	        ExtentManager.logFailure(BaseClass.getDriver(), "Test Failed", testName);
+	    }
 	}
 
 	/*@Override

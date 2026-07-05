@@ -33,7 +33,8 @@ public class BaseClass {
 	public void loadConfig() throws IOException {
 		// load config file
 		prop = new Properties();
-		FileInputStream fs = new FileInputStream(System.getProperty("user.dir")+"src/main/resources/config.properties");
+		FileInputStream fs = new FileInputStream(
+		        System.getProperty("user.dir") + "/src/main/resources/config.properties");
 		prop.load(fs);
 		logger.info("Config.properties file loaded");
 		//ExtentManager.getReporter();----implemented in TestListener
@@ -98,21 +99,12 @@ public class BaseClass {
 	// }
 
 	// driver setter method
-	public void setDriver(WebDriver driver) {
+	/*public void setDriver(WebDriver driver) {
 		this.driver = (ThreadLocal<WebDriver>) driver;
-	}
+	}*/
 
 	public static WebDriver getDriver() {
-		try {
-			if (driver.get() == null) {
-				System.out.println("driver is not initialized");
-				throw new IllegalStateException("WebDriver is not initialized");
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return driver.get();
+		 return driver.get();
 	}
 
 	public static ActionDriver getActionDriver()

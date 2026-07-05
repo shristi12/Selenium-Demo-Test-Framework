@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 import com.seleniumFW.base.BaseClass;
 import com.seleniumFW.pages.HomePage;
 import com.seleniumFW.pages.LoginPage;
+import com.seleniumFW.utilities.DataProviders;
 import com.seleniumFW.utilities.ExtentManager;
 
 public class LoginPageTest extends BaseClass {
@@ -22,7 +23,7 @@ public class LoginPageTest extends BaseClass {
 		homePage=new HomePage(getDriver());
 	}
 	
-	@Test(dataProvider="validLoginData", dataProviderClass=DataProvider.class)
+	@Test(dataProvider="validLoginData", dataProviderClass=DataProviders.class)
 	public void verifyValidLogin(String userName, String password)
 	{
 		//ExtentManager.StartTest("Valid Login Test");  ---->implemented in Test Listener
@@ -35,7 +36,7 @@ public class LoginPageTest extends BaseClass {
 		staticwait(2);
 	}
 	
-	@Test(dataProvider="invalidLoginData", dataProviderClass=DataProvider.class)
+	@Test(dataProvider="invalidLoginData", dataProviderClass=DataProviders.class)
 	public void verifyInvalidLogin(String userName, String password)
 	{
 		//ExtentManager.StartTest("Invalid Login Test");
